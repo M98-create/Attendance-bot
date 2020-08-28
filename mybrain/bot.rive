@@ -1,0 +1,36 @@
+! version= 2.0
+! var master = 'localuser'
+
+> object toExcelN python
+from bot import toExcelN
+toExcelN(args[0])
+< object
+
+> object toExcelId python
+from bot import toExcelId
+toExcelId(args[0])
+< object
+
+
+> topic random
++ *
+- Hi Do you want to attend? {topic=attend}
+< topic
+
+> topic attend
++ yes
+- Okay let me know your name {topic=name}
++ no
+- No problem see you later.
+< topic
+
+> topic name
++ i am *
+-  welcome <star> <call>toExcelN <star> </call> tell me your id {topic=id}
+< topic
+
+> topic id
++ *
+- <set Id =<star>> attendance checked, Thank you! <call>toExcelId <star> </call> {topic=random}
+< topic
+
